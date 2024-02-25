@@ -65,7 +65,7 @@ class BaseMedia:
 
 class FileAudio(BaseMedia):
     """
-    This is a class for local and cloud media files
+    This is a class for local and cloud audio files
     """
 
     def __init__(self):
@@ -73,7 +73,7 @@ class FileAudio(BaseMedia):
         self.path_cloud = None
 
     def create_file(self, name, path, size, create_date, owner):
-        """ Creating a local media file """
+        """ Creating a local audio file """
         self.name = name
         self.path = path
         self.size = size
@@ -82,7 +82,7 @@ class FileAudio(BaseMedia):
         print(f'Create a audio file {self.name} on local path {self.path}')
 
     def create_file_cloud(self, name, path_cloud, size, create_date, owner):
-        """ Creating a cloud media file """
+        """ Creating a cloud audio file """
         self.name = name
         self.path_cloud = path_cloud
         self.size = size
@@ -93,11 +93,11 @@ class FileAudio(BaseMedia):
 
 class FileVideo(BaseMedia):
     """
-    This is class for video
+    This is class for video file
     """
 
     def open_file(self, name, path):
-        """ Opening a file """
+        """ Opening a video file """
         self.name = name
         self.path = path
         print(f'Open a video file {self.name}')
@@ -109,7 +109,7 @@ class FilePhoto(BaseMedia):
     """
 
     def delete_file(self, name, path):
-        """ Deleting a file """
+        """ Deleting a photo file """
         self.name = name
         self.path = path
         print(f'Delete a photo file {self.name}')
