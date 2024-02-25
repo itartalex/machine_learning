@@ -22,35 +22,94 @@
 
 class BaseMedia:
     """
-    This base class for media
+    This is base class for media files
     """
 
-    def __init__(self, name, size, create_date, owner):
+    def __init__(self):
+        self.name = None
+        self.path = None
+        self.size = None
+        self.create_date = None
+        self.owner = None
+
+    def create_file(self, name, path, size, create_date, owner):
+        """ Creating a file """
         self.name = name
+        self.path = path
         self.size = size
         self.create_date = create_date
         self.owner = owner
-        self.is_test = False
+        raise NotImplementedError
+
+    def save_file(self, name, path):
+        """ Saving a file """
+        self.name = name
+        self.path = path
+        raise NotImplementedError
+
+    def delete_file(self, name, path):
+        """ Deleting a file """
+        self.name = name
+        self.path = path
+        raise NotImplementedError
+
+    def open_file(self, name, path):
+        """ Opening a file """
+        self.name = name
+        self.path = path
+        raise NotImplementedError
+
+    def __str__(self):
+        return f"name: {self.name} path: {self.path} size: {self.size} create date: {self.create_date} owner: {self.owner}"
 
 
 class FileAudio(BaseMedia):
     """
-    This class for audio
+    This is a class for local and cloud media files
     """
-    pass
+
+    def __init__(self):
+        super.__init__()
+        self.path_cloud = None
+
+    def create_file(self, name, path, size, create_date, owner):
+        """ Creating a local media file """
+        self.name = name
+        self.path = path
+        self.size = size
+        self.create_date = create_date
+        self.owner = owner
+        print(f'Create a audio file {self.name} on local path {self.path}')
+
+    def create_file_cloud(self, name, path_cloud, size, create_date, owner):
+        """ Creating a cloud media file """
+        self.name = name
+        self.path_cloud = path_cloud
+        self.size = size
+        self.create_date = create_date
+        self.owner = owner
+        print(f'Create a audio file {self.name} on cloud path {self.path_cloud}')
 
 
 class FileVideo(BaseMedia):
     """
-    This class for video
+    This is class for video
     """
-    pass
+
+    def open_file(self, name, path):
+        """ Opening a file """
+        self.name = name
+        self.path = path
+        print(f'Open a video file {self.name}')
 
 
 class FilePhoto(BaseMedia):
     """
-    This class for photo
+    This is class for photo
     """
-    pass
 
-
+    def delete_file(self, name, path):
+        """ Deleting a file """
+        self.name = name
+        self.path = path
+        print(f'Delete a photo file {self.name}')
