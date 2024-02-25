@@ -19,3 +19,38 @@
 # и способов их хранения?
 # Суть задания - именно проектирование классовой иерархии, а не реализация самой логики, поэтому достаточно, например,
 # просто объявить метод .save(...) и в комментарии уточнить - что он должен делать, без конкретной релаизации
+
+class BaseMedia:
+    """
+    This base class for media
+    """
+
+    def __init__(self, name, size, create_date, owner):
+        self.name = name
+        self.size = size
+        self.create_date = create_date
+        self.owner = owner
+        self.is_test = False
+
+
+class FileAudio(BaseMedia):
+    """
+    This class for audio
+    """
+    pass
+
+
+class FileVideo(BaseMedia):
+    """
+    This class for video
+    """
+    pass
+
+
+class FilePhoto(BaseMedia):
+    """
+    This class for photo
+    """
+    pass
+
+
