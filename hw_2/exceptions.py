@@ -25,4 +25,9 @@ class NotEnoughFuel(Exception):
 
 
 class CargoOverload(Exception):
-    pass
+    def __init__(self, msg, *args):
+        super().__init__(args)
+        self.msg = msg
+
+    def __str__(self):
+        return f'{self.msg}'
